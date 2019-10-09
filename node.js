@@ -1,4 +1,4 @@
-export default class Node {
+module.exports = class Node {
     constructor(data) {
         this.data = data;
         this.left = null;
