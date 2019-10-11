@@ -30,6 +30,45 @@ class BinaryTree {
         }
     }
 
+    remove(data) {
+        const removeNode = function(node, data) {
+            if (node === null) {
+                return null;
+            }
+            if (node.data === data) {
+                // node has no children
+                if (node.left === null & node.right === null) {
+                    return null;
+                }
+                // node has no left children
+                if (node.left === null) {
+                    return node.right;
+                }
+                // node has no right children
+                if (node.right === null) {
+                    return node.left;
+                }
+
+                // node has two children
+                let temp = node.right;
+                while (temp.left !== null) {
+                    temp = temp.left;
+                }
+                node.data = temp.data;
+                node.right = removeNode(node.right, temp.data);
+                return node;
+
+            } else if (data < node.data) {
+                node.left = removeNode(node.left, data);
+                return node;
+            } else {
+                node.right = removeNode(node.right, data);
+                return node;
+            }
+        };
+        this.root = removeNode(this.root, data);
+    }
+
     findMinNode() {
         if (!this.root) {
             return 'The tree is empty';
@@ -53,7 +92,6 @@ class BinaryTree {
             }
             console.log(current.data)
         }
-
     }
 
     // getRootNode()
@@ -67,5 +105,9 @@ const bin = new BinaryTree();
 bin.insert(5);
 bin.insert(4);
 bin.insert(8);
+bin.insert(7);
+console.log(bin);
 bin.findMinNode(); // 4
 bin.findMaxNode(); // 8
+bin.remove(8);
+console.log(bin);
