@@ -94,20 +94,22 @@ class BinaryTree {
         }
     }
 
-    // getRootNode()
+    getRootNode() {
+        console.log(this.root);
+        return this.root;
+    }
     // inorder(node)
     // preorder(node)
     // postoder(node)
     // search(node, data)
-};
+}
 
 const bin = new BinaryTree();
 bin.insert(5);
 bin.insert(4);
 bin.insert(8);
 bin.insert(7);
-console.log(bin);
 bin.findMinNode(); // 4
 bin.findMaxNode(); // 8
 bin.remove(8);
-console.log(bin);
+bin.getRootNode();
