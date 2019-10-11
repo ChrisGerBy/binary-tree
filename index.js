@@ -98,9 +98,30 @@ class BinaryTree {
         console.log(this.root);
         return this.root;
     }
-    // inorder(node)
-    // preorder(node)
-    // postoder(node)
+
+    inOrderTreeWalk(root) {
+        if (root !== null) {
+            this.inOrderTreeWalk(root.left);
+            console.log(`inorder ${root.data}`);
+            this.inOrderTreeWalk(root.right);
+        }
+    }
+
+    preorder(root) {
+        if (root !== null) {
+            console.log(`preorder ${root.data}`);
+            this.preorder(root.left);
+            this.preorder(root.right);
+        }
+    }
+
+    postorder(root) {
+        if (root !== null) {
+            this.postorder(root.left);
+            this.postorder(root.right);
+            console.log(`postorder ${root.data}`);
+        }
+    }
     // search(node, data)
 }
 
@@ -112,4 +133,9 @@ bin.insert(7);
 bin.findMinNode(); // 4
 bin.findMaxNode(); // 8
 bin.remove(8);
-bin.getRootNode();
+bin.insert(10);
+bin.insert(1);
+bin.inOrderTreeWalk(bin.getRootNode())
+console.log(bin)
+bin.preorder(bin.getRootNode())
+bin.postorder(bin.getRootNode())

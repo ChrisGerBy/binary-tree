@@ -6,6 +6,7 @@
 - findMinNode()
 - findMaxNode()
 - getRootNode() - O(1)
+- inOrderTreeWalK(root) / preorder / postorder - O(n)
 
 
 ## 07.10.2019 ##
@@ -17,5 +18,5 @@
 - implement findMinNode() and findMaxNode()
 
 ## 11.10.2019 ##
-- implement remove(data), getRootNode();
+- implement remove(data), getRootNode(), inOrderTreeWalk(root), preorder(root), postorder(root)
 
