@@ -95,7 +95,6 @@ class BinaryTree {
     }
 
     getRootNode() {
-        console.log(this.root);
         return this.root;
     }
 
@@ -122,7 +121,17 @@ class BinaryTree {
             console.log(`postorder ${root.data}`);
         }
     }
-    // search(node, data)
+
+    search(root, data) {
+        if (data === root.data) {
+            console.log(root)
+            return root;
+        } else if (data < root.data) {
+            return this.search(root.left, data);
+        } else if (data > root.data) {
+            return this.search(root.right, data);
+        }
+    }
 }
 
 const bin = new BinaryTree();
@@ -136,6 +145,6 @@ bin.remove(8);
 bin.insert(10);
 bin.insert(1);
 bin.inOrderTreeWalk(bin.getRootNode())
-console.log(bin)
 bin.preorder(bin.getRootNode())
 bin.postorder(bin.getRootNode())
+bin.search(bin.getRootNode(), 5);
